@@ -3,8 +3,14 @@ const app = express();
 const PORT = 3000;
 
 
-app.get('/', (req, res, next) => {
-    res.send('Hello, World!')
+const envelopeRouter = require('./envelope');
+app.use('/envelope', envelopeRouter);
+
+const totalBudgetRouter = require('./totalBudget');
+app.use('/totalBudget', totalBudgetRouter);
+
+app.get('/', (req, res) => {
+    res.send('pq n ta indo')
 })
 
 
